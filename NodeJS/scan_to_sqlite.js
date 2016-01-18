@@ -45,7 +45,12 @@ noble.on('discover', function(peripheral) {  // return BLE Device ที่อ�
 
 		var Minor = peripheral.advertisement.manufacturerData.slice(22,24);
 		console.log('on -> Major: ' + toHexString(Minor));
-	
+		answer.UUID = UUID;
+		answer.Major = Major;
+		answer.Minor = Minor;
+		answer.address = peripheral.address;
+		answer.time = time;
+		//  socket.emit('...',JSON.stringify(answer));  // # ส่งให้ Socket.io เพื่อส่งให้หน้าเว็บ
 		db.prepare("INSERT INTO answer VALUES (0,"+question_id+",'"+peripheral.address+"','"+toHexString(Major)+"',"+time+")");
 	} 
 });
