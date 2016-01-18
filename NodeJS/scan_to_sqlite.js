@@ -2,7 +2,7 @@ var noble = require('noble');
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(':test:');
 
-var qid = 1234,answer;
+var question_id = 1234,answer;
 
 console.log('Program Start....');
 
@@ -41,12 +41,12 @@ noble.on('discover', function(peripheral) {  // return BLE Device ที่อ�
 		console.log('on -> UUID: ' + toHexString(UUID));
 
 		var Mojor = peripheral.advertisement.manufacturerData.slice(20,22);
-		console.log('on -> Major: ' + toHexString(Mojor));
+		console.log('on -> Major: ' + toHexString(Major));
 
 		var Minor = peripheral.advertisement.manufacturerData.slice(22,24);
 		console.log('on -> Major: ' + toHexString(Minor));
 	
-		db.prepare("INSERT INTO answer VALUES (0,"+qid+",'"+peripheral.address+"','"+toHexString(Mojor)+"',"+time+")");
+		db.prepare("INSERT INTO answer VALUES (0,"+question_id+",'"+peripheral.address+"','"+toHexString(Major)+"',"+time+")");
 	} 
 });
 
