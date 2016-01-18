@@ -45,6 +45,8 @@ noble.on('discover', function(peripheral) {  // return BLE Device ที่อ�
 
 		var Minor = peripheral.advertisement.manufacturerData.slice(22,24);
 		console.log('on -> Major: ' + toHexString(Minor));
+		var answer = {};
+		answer.question_id = question_id;
 		answer.UUID = UUID;
 		answer.Major = Major;
 		answer.Minor = Minor;
