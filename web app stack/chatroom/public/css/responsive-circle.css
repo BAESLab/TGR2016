@@ -1,0 +1,40 @@
+/*
+* css for a responsive-circle status
+*/
+
+.responsive-circle {
+    font-size: 80px;
+    font-weight: 700;
+    margin: 0 auto 20px;
+    width: 70%;
+}
+.responsive-circle::after {
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 0;
+    margin-bottom: 20px;
+    padding-bottom: 100%;
+    width: 100%;
+}
+.responsive-circle div {
+    color: white;
+    float: left;
+    line-height: 1em;
+    margin-top: -0.5em;
+    padding-top: 50%;
+    text-align: center;
+    width: 100%;
+}
+.color-red::after {
+    background-color: #CC0000;
+}
+.color-blue::after {
+    background-color: royalblue;
+}
+.color-orange::after {
+    background-color: orange;
+}
+.color-green::after {
+    background-color: seagreen;
+}
